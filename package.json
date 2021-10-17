@@ -1,0 +1,14 @@
+{
+    "name": "@cloud-technology/api-next",
+    "version": "0.0.1",
+    "description": "Simple Node.js Backend API",
+    "type": "module",
+    "scripts": {
+        "start": "node src/index.js"
+    },
+    "author": "Jacob B. Sanders",
+    "license": "BSD-3-Clause",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
