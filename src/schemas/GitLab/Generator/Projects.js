@@ -1,7 +1,7 @@
 import {default as axios} from "axios";
 
 const URL = (page = 1, items = 20) => {
-    const Base = "https://gitlab.mycapstone.com/api/v4/";
+    const Base = process.env["GitLab-API"];
     const Extension = "projects";
     const Page = (index) => `page=${index}`;
     const Per = (index) => `per_page=${index}`;
