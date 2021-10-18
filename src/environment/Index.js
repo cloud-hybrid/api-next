@@ -4,10 +4,13 @@ import * as FS from "fs";
 
 const Variables = [
     ["CI", typeof Boolean()],
-    ["Server", typeof String()],
-    ["Environment", typeof String()],
+    ["GitHub-API", typeof String()],
+    ["GitHub-Token", typeof String()],
+    ["GitHub-Organization", typeof String()],
     ["GitLab-Token", typeof String()],
-    ["GitHub-Token", typeof String()]
+    ["GitLab-API", typeof String()],
+    ["Server", typeof String()],
+    ["Environment", typeof String()]
 ];
 
 const Content = () => String(FS.readFileSync(".env", { encoding: "UTF-8" }));
