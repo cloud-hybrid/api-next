@@ -18,13 +18,13 @@ Application.listen(8080, async () => {
 
     console.debug($);
 
-    const Schemas = await import("./schemas/Index.js").then((Module) => Module.default);
+//    const Schemas = await import("./schemas/Index.js").then((Module) => Module.default);
 
-    console.debug(JSON.stringify(Schemas, null, 4));
+//    console.debug(JSON.stringify(Schemas, null, 4));
 
-    const Casts = Cast(Schemas);
+//    const Casts = Cast(Schemas);
 
-    console.debug(JSON.stringify(Casts, null, 4));
+//    console.debug(JSON.stringify(Casts, null, 4));
 }).on("listening",  () => {
     console.log("Server running on port 8080");
     console.log("   - http://localhost:8080");
