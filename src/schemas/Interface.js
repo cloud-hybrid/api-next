@@ -15,16 +15,16 @@ export const Cast = (obj = []) => {
                 }
                 break;
             case "boolean":
-                _[key] = "Boolean";
+                _[key] = "boolean";
                 break;
             case "number":
-                _[key] = "Number";
+                _[key] = "number";
                 break;
             case "bigint":
-                _[key] = "BigInt";
+                _[key] = "integer";
                 break;
             case "string":
-                _[key] = "String";
+                _[key] = "string";
                 break;
             default:
                 _[key] = null;

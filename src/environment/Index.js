@@ -15,6 +15,8 @@ const Variables = [
 
 const Content = () => String(FS.readFileSync(".env", { encoding: "UTF-8" }));
 
+console.debug(Content());
+
 const Error = (Variable) => String("Environment Variable" + " (" + Variable[0] + ")" + " " + "Type !:=" + " " + Variable[1]);
 
 process.env = { ... Process.env, ... JSON.parse(Content()) };

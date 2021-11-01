@@ -1,13 +1,31 @@
-import {default as axios} from "axios";
+import { default as axios } from "axios";
 
-const URL = (page = 1, items = 20) => {
+/***
+ *
+ * @param page
+ * @param items
+ * @returns {string}
+ *
+ * @constructor
+ *
+ */
+
+const URL = (page = 1, items = 1) => {
     const Base = process.env["GitLab-API"];
     const Extension = "projects";
-    const Page = (index) => `page=${index}`;
-    const Per = (index) => `per_page=${index}`;
+    const Page = (index) => `page=${ index }`;
+    const Per = (index) => `per_page=${ index }`;
 
     return Base + Extension + "?" + Page(page) + "&" + Per(items);
 };
+
+/***
+ *
+ * @returns {Promise<AxiosResponse<any>>}
+ *
+ * @constructor
+ *
+ */
 
 const Total = async () => await axios.get(URL(), {
     headers: {
@@ -16,6 +34,14 @@ const Total = async () => await axios.get(URL(), {
 }).then(
     (Data) => Data.headers["x-total-pages"]
 );
+
+/***
+ *
+ * @param obj
+ *
+ * @returns {{}}
+ *
+ */
 
 const flatten = (obj) => {
     const _ = {}
@@ -33,8 +59,16 @@ const flatten = (obj) => {
     return _;
 }
 
+/***
+ *
+ * @returns {Promise<string>}
+ *
+ * @constructor
+ *
+ */
+
 const Data = async () => {
-    const Query = async (page = 1) => await axios.get(URL(page), {
+    const Query = async (page = 1, items = 1) => await axios.get(URL(page, items), {
         headers: {
             "PRIVATE-TOKEN": process.env["GitLab-Token"]
         }
@@ -42,7 +76,7 @@ const Data = async () => {
 
     const Response = await Query();
 
-    const Entity = Response.data[1];
+    const Entity = Response.data;
 
     return JSON.stringify(flatten(Entity), null, 4);
 };
